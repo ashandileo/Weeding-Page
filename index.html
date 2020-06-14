@@ -212,10 +212,11 @@
         <div class="container">
             <h2 class="title">Gallery</h2>
             <p class="text-center">Momen Bahagia Awan dan Pelangi</p>
-            <a href="./_assets/img/2.jpeg" target="__blank"><img src="./_assets/img/2.jpeg"></a>
-            <a href="./_assets/img/7.jpeg" target="__blank"><img src="./_assets/img/7.jpeg"></a>
-            <a href="./_assets/img/5.jpeg" target="__blank"><img src="./_assets/img/5.jpeg"></a>
-            <a href="./_assets/img/6.jpeg" target="__blank"><img src="./_assets/img/6.jpeg"></a>
+            
+            <img src="./_assets/img/2.jpeg" onClick="openModal(this)">
+            <img src="./_assets/img/7.jpeg" onClick="openModal(this)">
+            <img src="./_assets/img/5.jpeg" onClick="openModal(this)">
+            <img src="./_assets/img/6.jpeg" onClick="openModal(this)">
         </div>
     </section>
 
@@ -362,6 +363,17 @@
     <footer class="text-center">
         Copyright 2020
     </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-close">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-content">
+            <div class="modal-previous"><i class="fas fa-chevron-left"></i></div>
+            <img src="" class="modal-content-img">
+            <div class="modal-next"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
 
 <script src="./_assets/js/script.js"></script>
 

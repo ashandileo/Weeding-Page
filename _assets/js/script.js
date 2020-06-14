@@ -38,3 +38,49 @@ unMuteSound.addEventListener('click', () => {
     muteSound.classList.replace('d-none', 'd-block');
     document.getElementById('audio').play();
 });
+
+// Modal
+const modal = document.getElementById('modal');
+const modalContentImg = document.querySelector('.modal-content-img');
+const modalCloseIcon = document.querySelector('.modal-close');
+const modalPreviousBtn = document.querySelector('.modal-previous');
+const modalNextBtn = document.querySelector('.modal-next');
+
+const GalleryImg = document.querySelectorAll('.gallery img');
+let imageGalleryNumber = 0;
+
+const openModal = (img) => {
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+
+    modalContentImg.src = img.src
+    
+    GalleryImg.forEach((gallery, index) => {
+        if(gallery === img) imageGalleryNumber = index;
+    });
+}
+
+modalCloseIcon.addEventListener('click', () => {
+    modal.style.opacity = '0';
+    modal.style.pointerEvents = 'none';
+});
+
+modalPreviousBtn.addEventListener('click', () => {
+    if(imageGalleryNumber === 0) {
+        modalContentImg.src = GalleryImg[GalleryImg.length - 1].src;
+        imageGalleryNumber = GalleryImg.length - 1;
+    } else {
+        modalContentImg.src = GalleryImg[imageGalleryNumber - 1].src;
+        imageGalleryNumber--;
+    }
+});
+
+modalNextBtn.addEventListener('click', () => {
+    if(imageGalleryNumber === GalleryImg.length - 1) {
+        modalContentImg.src = GalleryImg[0].src;
+        imageGalleryNumber = 0;
+    } else {
+        modalContentImg.src = GalleryImg[imageGalleryNumber + 1].src;
+        imageGalleryNumber++;
+    }
+})
